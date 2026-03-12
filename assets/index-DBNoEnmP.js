@@ -49,7 +49,7 @@
     <div class="hero-content">
       <div class="avatar-wrapper">
         <div class="avatar">
-          <img src="/foto-cv.jpg" alt="${o.name}" style="width: 100%; height: 100%; object-fit: cover; object-position: center 35%; border-radius: 50%;">
+          <img src="foto-cv.jpg" alt="${o.name}" style="width: 100%; height: 100%; object-fit: cover; object-position: center 35%; border-radius: 50%;">
         </div>
         <div class="status-indicator" title="Disponible para proyectos"></div>
       </div>
