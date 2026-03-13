@@ -354,7 +354,7 @@
   <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
     ${i.arrowUp}
   </button>
-`,I=()=>{const e=document.querySelector(".menu-toggle"),a=document.querySelector(".nav-links");e&&a&&(e.addEventListener("click",()=>{e.classList.toggle("active"),a.classList.toggle("active")}),a.querySelectorAll("a").forEach(o=>{o.addEventListener("click",()=>{e.classList.remove("active"),a.classList.remove("active")})}))},$=()=>{const e=document.querySelector("header"),a=document.getElementById("scrollTop");window.addEventListener("scroll",()=>{window.scrollY>100?(e?.classList.add("scrolled"),a?.classList.add("visible")):(e?.classList.remove("scrolled"),a?.classList.remove("visible"))}),a?.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})})},E=()=>{const e={threshold:.1,rootMargin:"0px 0px -50px 0px"},a=new IntersectionObserver(o=>{o.forEach(l=>{l.isIntersecting&&l.target.classList.add("active")})},e);document.querySelectorAll(".reveal").forEach(o=>a.observe(o))},z=()=>`
+`,$=()=>{const e=document.querySelector(".menu-toggle"),a=document.querySelector(".nav-links");e&&a&&(e.addEventListener("click",()=>{e.classList.toggle("active"),a.classList.toggle("active")}),a.querySelectorAll("a").forEach(o=>{o.addEventListener("click",()=>{e.classList.remove("active"),a.classList.remove("active")})}))},E=()=>{const e=document.querySelector("header"),a=document.getElementById("scrollTop");window.addEventListener("scroll",()=>{window.scrollY>100?(e?.classList.add("scrolled"),a?.classList.add("visible")):(e?.classList.remove("scrolled"),a?.classList.remove("visible"))}),a?.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})})},I=()=>{const e={threshold:.1,rootMargin:"0px 0px -50px 0px"},a=new IntersectionObserver(o=>{o.forEach(l=>{l.isIntersecting&&l.target.classList.add("active")})},e);document.querySelectorAll(".reveal").forEach(o=>a.observe(o))},z=()=>`
   <div class="project-page">
     <div class="container reveal">
       <a href="#home" class="project-back-btn">
@@ -810,10 +810,6 @@
           <section>
             <h2>Gestión Integral de Asociaciones</h2>
             <p><strong>Paquito Flores</strong> es una aplicación Android de alto rendimiento diseñada para la gestión total de una caseta de socios. Implementa un stack tecnológico moderno centrado en la reactividad y la sincronización de datos en tiempo real.</p>
-            
-            <div class="project-image-container">
-              <img src="./paquito_mockup.png" alt="Paquito Flores App Interface" class="project-preview-img">
-            </div>
           </section>
 
           <div class="practice-grid">
@@ -920,4 +916,4 @@
       ${P()}
       ${c()}
       ${L()}
-    `,a.style.display="block",I(),$()),E(),window.scrollTo({top:0,behavior:"smooth"})};window.addEventListener("hashchange",v);document.addEventListener("DOMContentLoaded",()=>{v()});
+    `,a.style.display="block",$(),E()),I(),window.scrollTo({top:0,behavior:"smooth"})};window.addEventListener("hashchange",v);document.addEventListener("DOMContentLoaded",()=>{v()});
