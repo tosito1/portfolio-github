@@ -111,7 +111,7 @@
           <div class="tags">
             ${e.tags.map(o=>`<span class="tag">${o}</span>`).join("")}
           </div>
-          <a href="${e.title.includes("Paniculas")?"#proyecto/paniculas":e.title.includes("Cloud")?"#proyecto/cloud":e.title.includes("DSS")?"#proyecto/dss":e.title.includes("TID")?"#proyecto/tid":e.title.includes("Computacional")?"#proyecto/ic":e.title.includes("Paquito")?"#proyecto/paquito":e.title.includes("Museo")?"#proyecto/museo":e.title.includes("Hexapodo")?"#proyecto/hexapodo":"#"}" class="card-link">
+          <a href="${e.title.toLowerCase().includes("paniculas")?"#proyecto/paniculas":e.title.toLowerCase().includes("cloud")?"#proyecto/cloud":e.title.toLowerCase().includes("dss")?"#proyecto/dss":e.title.toLowerCase().includes("tid")?"#proyecto/tid":e.title.toLowerCase().includes("computacional")?"#proyecto/ic":e.title.toLowerCase().includes("paquito")?"#proyecto/paquito":e.title.toLowerCase().includes("museo")?"#proyecto/museo":e.title.toLowerCase().includes("hex")?"#proyecto/hexapodo":"#"}" class="card-link">
             Ver detalles
             ${a.arrow}
           </a>
