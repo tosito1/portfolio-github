@@ -61,9 +61,6 @@
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Contacto</a>
         <a href="#projects" class="btn btn-secondary">Proyectos</a>
-        <button onclick="window.print()" class="btn btn-glass" style="display: flex; align-items: center; gap: 0.5rem;">
-          ${a.download} Descargar CV
-        </button>
       </div>
       <div class="social-links-hero">
         ${p()}
