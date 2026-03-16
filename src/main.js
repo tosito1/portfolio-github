@@ -17,8 +17,18 @@ const userData = {
     location: "Granada / Herrera, España"
   },
   languages: [
-    { name: "Español", level: "Nativo" },
-    { name: "Inglés", level: "B1/B2" }
+    { name: "Español", level: "Nativo", overall: "Nacido y criado en España" },
+    {
+      name: "Inglés",
+      level: "B2",
+      scores: [
+        { name: "Listening", level: "B1", score: 24 },
+        { name: "Reading", level: "B1", score: 32 },
+        { name: "Speaking", level: "B2", score: 41 },
+        { name: "Writing", level: "B2", score: 40 }
+      ],
+      overall: "Aptis ESOL (British Council)"
+    }
   ],
   license: "Permiso de conducir B"
 }
@@ -198,6 +208,12 @@ const projects = [
 ]
 
 const certificates = [
+  {
+    title: "Aptis ESOL International Certificate: B2",
+    issuer: "British Council",
+    date: "2023",
+    icon: "award"
+  },
   {
     title: "Cisco® CCNA v7: ENSA",
     issuer: "Cisco Networking Academy",
@@ -575,28 +591,43 @@ const renderLanguages = () => `
   <section id="languages" class="container reveal">
     <div class="section-header">
       <h2 class="gradient-text">Idiomas</h2>
-      <p>Competencia lingüística</p>
+      <p>Competencia lingüística acreditada</p>
     </div>
     <div class="languages-grid">
       ${userData.languages.map(lang => `
         <div class="language-card">
-          <div class="language-icon">
-            ${icons.globe}
-          </div>
-          <div class="language-info">
-            <h3>${lang.name}</h3>
-            <div class="language-level-wrapper">
-              <span class="language-level-text">${lang.level}</span>
-              <div class="language-bar">
-                <div class="language-progress" style="width: ${
-                  lang.level.toLowerCase().includes('nativo') ? '100%' :
-                  lang.level.includes('C2') ? '95%' :
-                  lang.level.includes('C1') ? '85%' :
-                  lang.level.includes('B2') ? '70%' :
-                  lang.level.includes('B1') ? '55%' : '40%'
-                }"></div>
+          <div class="language-content">
+            <div class="language-main">
+              <div class="language-icon">
+                ${icons.globe}
+              </div>
+              <div class="language-info">
+                <h3>${lang.name}</h3>
+                <div class="language-level-wrapper">
+                  <span class="language-level-text">${lang.level}</span>
+                  ${lang.overall ? `<span class="language-overall">${lang.overall}</span>` : ''}
+                  <div class="language-bar">
+                    <div class="language-progress" style="width: ${lang.level.toLowerCase().includes('nativo') ? '100%' :
+    lang.level.includes('C2') ? '95%' :
+      lang.level.includes('C1') ? '85%' :
+        lang.level.includes('B2') ? '70%' :
+          lang.level.includes('B1') ? '55%' : '40%'
+  }"></div>
+                  </div>
+                </div>
               </div>
             </div>
+            ${lang.scores ? `
+              <div class="language-scores">
+                ${lang.scores.map(s => `
+                  <div class="score-item">
+                    <span class="score-name">${s.name}</span>
+                    <span class="score-level">${s.level}</span>
+                    <span class="score-value">${s.score}/50</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
           </div>
         </div>
       `).join('')}
@@ -1807,8 +1838,8 @@ const generatePDF = () => {
     margin: [15, 15, 15, 15],
     filename: `CV_${userData.name.replace(/\s+/g, '_')}.pdf`,
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
-      scale: 2, 
+    html2canvas: {
+      scale: 2,
       useCORS: true,
       letterRendering: true,
       logging: false,
@@ -1821,7 +1852,7 @@ const generatePDF = () => {
 
   // Add a class to the body to trigger print styles during PDF generation
   document.body.classList.add('is-generating-pdf');
-  
+
   // Wait a small bit for any style recalculations
   setTimeout(() => {
     html2pdf().set(opt).from(element).save().then(() => {

@@ -1941,3 +1941,73 @@ footer {
 .is-generating-pdf .language-bar {
   background: #e2e8f0;
 }
+.language-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.language-main {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.language-overall {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.language-scores {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.score-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.score-name {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.score-level {
+  color: var(--accent-tertiary);
+  font-weight: 600;
+  margin: 0 0.5rem;
+}
+
+.score-value {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 640px) {
+  .language-scores {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Specific styles for print/PDF mode */
+.is-generating-pdf .score-item {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.is-generating-pdf .language-overall {
+  color: #64748b;
+}
