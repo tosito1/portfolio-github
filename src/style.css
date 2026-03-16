@@ -247,6 +247,37 @@ header nav {
   width: 100%;
 }
 
+.nav-links img, .nav-links svg {
+  vertical-align: middle;
+}
+
+.btn-cv-nav {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-cv-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  filter: brightness(1.1);
+}
+
+.cv-download-nav {
+  display: flex;
+  align-items: center;
+}
+
 /* Mobile menu */
 .menu-toggle {
   display: none;
@@ -638,6 +669,11 @@ ul {
   border-color: var(--accent-primary);
 }
 
+/* Ocultar texto extra de enlaces que solo es para el PDF */
+.pdf-only-link-text {
+  display: none;
+}
+
 /* ================================
    SECTION HEADERS
    ================================ */
@@ -793,9 +829,14 @@ ul {
   transition: var(--transition-fast);
 }
 
-/* ================================
-   CERTIFICATES
-   ================================ */
+/* PDF Generation Styles moved to bottom of file */
+
+@media print {
+  .bg-animation, .scroll-top, .menu-toggle, .hero-actions, .card-link, .project-back-btn, .cv-download-nav {
+    display: none !important;
+  }
+}
+*/
 .certificates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1355,4 +1396,548 @@ footer {
     width: 44px;
     height: 44px;
   }
+}
+
+/* ================================
+   PROJECT DETAIL PAGE
+   ================================ */
+.project-page {
+  padding-top: 120px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.project-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: var(--transition-fast);
+}
+
+.project-back-btn:hover {
+  color: var(--accent-primary);
+  transform: translateX(-5px);
+}
+
+.project-hero {
+  margin-bottom: 4rem;
+}
+
+.project-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.project-main-content h2 {
+  font-size: 2rem;
+  margin: 3rem 0 1.5rem;
+  color: var(--text-primary);
+}
+
+.project-main-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Architecture Diagram Styling */
+.architecture-container {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arch-node {
+  padding: 1rem 2rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  width: 280px;
+  text-align: center;
+  color: var(--text-primary);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+.arch-arrow {
+  color: var(--accent-primary);
+  font-size: 1.5rem;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+/* Sidebar Styling */
+.project-sidebar {
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+}
+
+.sidebar-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+}
+
+.sidebar-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-list-detailed {
+  list-style: none;
+}
+
+.tech-item-detailed {
+  margin-bottom: 1.5rem;
+}
+
+.tech-item-detailed strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.tech-item-detailed span {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+}
+
+.learning-list {
+  list-style: none;
+}
+
+.learning-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.learning-item::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+/* Practice Cards Grid */
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.practice-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.practice-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.practice-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--accent-secondary);
+}
+
+.practice-card p {
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+.practice-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-primary);
+  border-radius: 100px;
+  margin-bottom: 0.5rem;
+}
+
+.project-image-container {
+  margin: 2rem 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-preview-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-image-container:hover .project-preview-img {
+  transform: scale(1.02);
+}
+
+@media (max-width: 992px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .project-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ================================
+
+/* ================================
+
+/* ================================
+   PDF GENERATION STYLES (v20 HYBRID MASTER FIX)
+   ================================ */
+.is-generating-pdf {
+  --bg-primary: #ffffff !important;
+  --bg-secondary: #ffffff !important;
+  --bg-card: #ffffff !important;
+  --text-primary: #111111 !important;
+  --text-secondary: #333333 !important;
+  --text-muted: #555555 !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  width: 800px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 14px !important;
+}
+
+.is-generating-pdf body { margin: 0 !important; padding: 0 !important; background: white !important; }
+.is-generating-pdf #app, .is-generating-pdf main, .is-generating-pdf section, 
+.is-generating-pdf .container, .is-generating-pdf #content {
+  display: block !important;
+  width: 100% !important;
+  background: white !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: static !important;
+  overflow: visible !important;
+}
+
+.is-generating-pdf * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  box-shadow: none !important;
+}
+
+.is-generating-pdf .hero {
+  background: #f8f9fa !important;
+  border-bottom: 4px solid #1a5276 !important;
+  padding: 50px 0 !important;
+  text-align: center !important;
+}
+
+.is-generating-pdf .avatar-wrapper {
+  width: 160px !important;
+  height: 160px !important;
+  margin: 0 auto 25px !important;
+  border: 7px solid white !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  position: relative !important;
+  display: block !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+}
+
+.is-generating-pdf .avatar {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  border-radius: 50% !important;
+  background-image: url('/foto-cv.jpg') !important;
+  background-size: cover !important;
+  background-position: center 35% !important;
+  background-repeat: no-repeat !important;
+}
+
+.is-generating-pdf .avatar img { display: none !important; }
+
+.is-generating-pdf h1, .is-generating-pdf .gradient-text {
+  font-size: 34pt !important;
+  color: #1a5276 !important;
+  margin: 15px 0 !important;
+  background: none !important;
+  -webkit-text-fill-color: #1a5276 !important;
+  font-weight: 900 !important;
+}
+
+.is-generating-pdf .hero-subtitle {
+  font-size: 20pt !important;
+  color: #1a5276 !important;
+  font-weight: 700 !important;
+  margin-bottom: 30px !important;
+}
+
+/* HERO SOCIAL LINKS - Force Visibility in PDF */
+.is-generating-pdf .social-links-hero .example-2 {
+  display: block !important;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+  text-align: center !important;
+}
+
+.is-generating-pdf .social-links-hero .icon-content {
+  display: inline-block !important;
+  margin: 5px 12px !important;
+}
+
+.is-generating-pdf .social-links-hero a.social-btn {
+  display: inline-block !important;
+  padding: 10px 20px !important;
+  background: #ffffff !important;
+  border: 2px solid #1a5276 !important;
+  border-radius: 50px !important;
+  color: #1a5276 !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  min-width: 140px !important;
+  white-space: nowrap !important;
+}
+
+.is-generating-pdf .social-links-hero a.social-btn svg {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 10px !important;
+  fill: #1a5276 !important;
+  color: #1a5276 !important;
+}
+
+/* GLOBAL SVG RULES FOR PDF */
+.is-generating-pdf svg {
+  fill: #1a5276 !important;
+  color: #1a5276 !important;
+}
+
+.is-generating-pdf svg[fill='none'] { fill: none !important; }
+
+.is-generating-pdf svg * {
+  fill: inherit !important;
+  stroke: #1a5276 !important;
+  stroke-width: 2.5 !important;
+}
+
+.is-generating-pdf svg[fill='none'] * { fill: none !important; }
+
+.is-generating-pdf .social-links-hero .tooltip {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  position: static !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #1a5276 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+.is-generating-pdf .social-links-hero .tooltip::before { display: none !important; }
+
+/* CONTACT SECTION */
+.is-generating-pdf #contact { padding: 40px 70px !important; }
+.is-generating-pdf .contact-grid { display: block !important; }
+.is-generating-pdf .contact-card {
+  display: block !important;
+  width: 100% !important;
+  height: 120px !important;
+  margin-bottom: 40px !important;
+  padding: 30px !important;
+  background: #ffffff !important;
+  border: 2px solid #dddddd !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  color: #111111 !important;
+  position: relative !important;
+}
+
+.is-generating-pdf .contact-icon {
+  float: left !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: #f1f3f5 !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-right: 25px !important;
+}
+
+.is-generating-pdf .contact-icon svg {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.is-generating-pdf .contact-info h3 { font-size: 18px !important; color: #1a5276 !important; margin: 0 !important; }
+.is-generating-pdf .contact-info p { font-size: 15px !important; color: #444444 !important; margin-top: 5px !important; }
+
+/* CLEANUP */
+.is-generating-pdf section { padding: 40px 70px !important; }
+.is-generating-pdf .section-header h2 { font-size: 26px !important; color: #1a5276 !important; border-bottom: 4px solid #1a5276 !important; padding-bottom: 10px !important; margin-bottom: 35px !important; }
+.is-generating-pdf .experience-card, .is-generating-pdf .card, .is-generating-pdf .certificate-card,
+.is-generating-pdf .timeline-content, .is-generating-pdf .skill-category {
+  background: white !important; border: 1px solid #eeeeee !important; padding: 30px !important; margin-bottom: 30px !important; page-break-inside: avoid !important;
+}
+
+.is-generating-pdf .skill-tag {
+  background: #f8f9fa !important; border: 1.5px solid #dee2e6 !important; color: #1a5276 !important; padding: 6px 14px !important; font-weight: bold !important; display: inline-block !important; margin: 4px !important; border-radius: 5px !important;
+}
+
+.is-generating-pdf .header, .is-generating-pdf #header, .is-generating-pdf footer,
+.is-generating-pdf .bg-animation, .is-generating-pdf .scroll-top, .is-generating-pdf .hero-actions, 
+.is-generating-pdf .card-link, .is-generating-pdf .project-back-btn, .is-generating-pdf .status-indicator,
+.is-generating-pdf .particles, .is-generating-pdf .grid-pattern, .is-generating-pdf .scroll-indicator,
+.is-generating-pdf .dots-pattern, .is-generating-pdf .filled, .is-generating-pdf .pdf-only-link-text {
+  display: none !important;
+}
+/* ================================
+   LANGUAGES SECTION
+   ================================ */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.language-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.language-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+}
+
+.language-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-gradient);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.language-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.language-info {
+  flex-grow: 1;
+}
+
+.language-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.language-level-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.language-level-text {
+  font-size: 0.9rem;
+  color: var(--accent-secondary);
+  font-weight: 500;
+}
+
+.language-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.language-progress {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 3px;
+  transition: width 1s ease-out;
+}
+
+/* Specific styles for print/PDF mode */
+.is-generating-pdf #languages {
+  page-break-before: always;
+  margin-top: 2rem;
+}
+
+.is-generating-pdf .language-card {
+  break-inside: avoid;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.is-generating-pdf .language-level-text {
+  color: #475569;
+}
+
+.is-generating-pdf .language-bar {
+  background: #e2e8f0;
 }
